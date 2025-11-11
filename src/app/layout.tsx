@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-background text-foreground"}>{children}</body>
+      <body className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-foreground antialiased">
+        <Navbar />
+        <main className="mx-auto w-full max-w-6xl px-6 py-8">{children}</main>
+        <footer className="border-t border-border/40 bg-white/50 mt-12 py-6 text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} OsarPosar — All rights reserved.
+        </footer>
+      </body>
     </html>
   );
 }
